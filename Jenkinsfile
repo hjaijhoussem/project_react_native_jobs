@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 //checkout scm
-                checkout scmGit(extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh', url: 'git@github.com:hjaijhoussem/project_react_native_jobs.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh', url: 'git@github.com:hjaijhoussem/project_react_native_jobs.git']])
                 // branches: [[name: '*/master']], 
             }
         }
