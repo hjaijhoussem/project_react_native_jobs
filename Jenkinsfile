@@ -31,19 +31,19 @@ pipeline {
             }
         }
         
-        stage('Generate apk' ) {
-            when { 
-                anyOf {
-                    branch 'main'
-                    changeRequest target: 'main'
-                }
-            }
-            steps {
-                dir('android') {
-                    sh './gradlew app:assembleRelease --stacktrace'
-                }
-            }
-        }
+        // stage('Generate apk' ) {
+        //     when { 
+        //         anyOf {
+        //             branch 'main'
+        //             changeRequest target: 'main'
+        //         }
+        //     }
+        //     steps {
+        //         dir('android') {
+        //             sh './gradlew app:assembleRelease --stacktrace'
+        //         }
+        //     }
+        // }
     }
     post {
         failure {
