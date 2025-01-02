@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         nodejs 'nodejs'
-        jdk 'jdk-17'
+        //jdk 'jdk-17'
     }
     stages {
         stage('Checkout Code') {
@@ -13,7 +13,9 @@ pipeline {
                 }
             }
             steps {
-                checkout scm
+                //checkout scm
+                checkout scmGit(extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh', url: 'git@github.com:hjaijhoussem/project_react_native_jobs.git']])
+                // branches: [[name: '*/master']], 
             }
         }
         stage('Install Dependencies') {
